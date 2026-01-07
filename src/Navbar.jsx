@@ -417,7 +417,7 @@ const Navbar = () => {
                                         }
                                     />
                                 )}
-                                 {["Amazon","Zepto","BigBasket"].includes(operatorName) && (
+                                 {["Amazon"].includes(operatorName) && (
                                     <RedirectLink
                                         url={`/visibility${operatorTypeParams === ""
                                             ? `?operator=${OPERATOR.AMAZON}`
