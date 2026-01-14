@@ -150,8 +150,8 @@ const OverviewCardTopBox = ({ overViewData }) => {
   const metricsCards = [
     {
       title: "Impressions",
-      value: metrics.Impressions,
-      formatted: toMillions(metrics.Impressions || 0),
+      value: metrics.total_impressions,
+      formatted: toMillions(metrics.total_impressions || 0),
       sub: "Total Impressions",
       icon: <Eye size={20} />,
       color: "#0284c7",
@@ -170,8 +170,8 @@ const OverviewCardTopBox = ({ overViewData }) => {
     },
     {
       title: "Orders",
-      value: metrics.Orders,
-      formatted: toThousands(metrics.Orders || 0),
+      value: metrics.total_orders,
+      formatted: toThousands(metrics.total_orders || 0),
       sub: "Total Orders",
       icon: <MousePointerClick size={20} />,
       color: "#2563eb",
@@ -180,8 +180,8 @@ const OverviewCardTopBox = ({ overViewData }) => {
     },
     {
       title: "Total Spends",
-      value: metrics.Spend,
-      formatted: `₹${toMillions(metrics.Spend || 0)}`,
+      value: metrics.total_spends,
+      formatted: `₹${toMillions(metrics.total_spends || 0)}`,
       sub: "Ad Spend",
       icon: <IndianRupee size={20} />,
       color: "#d97706",
@@ -190,11 +190,19 @@ const OverviewCardTopBox = ({ overViewData }) => {
     },
     {
       title: "ROAS",
-      value: metrics.avg_roas,
-      formatted: `${(metrics.avg_roas || 0).toFixed(2)}×`,
+      value: Array.isArray(metrics.avg_roas)
+        ? metrics.avg_roas[0]
+        : metrics.avg_roas,
+      formatted: `${(
+        (Array.isArray(metrics.avg_roas)
+          ? metrics.avg_roas[0]
+          : metrics.avg_roas) || 0
+      ).toFixed(2)}×`,
       sub: "Return on Ad Spend",
       icon: <Gauge size={20} />,
-      color: roasColor(metrics.avg_roas),
+      color: roasColor(
+        Array.isArray(metrics.avg_roas) ? metrics.avg_roas[0] : metrics.avg_roas
+      ),
       bgColor: "#ecfdf5",
       chartData: chartData.roas || [],
     },
