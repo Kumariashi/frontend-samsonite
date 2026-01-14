@@ -8,6 +8,7 @@ import ColumnPercentageDataComponent from "../../common/columnPercentageDataComp
 import GoalComponent from "./overview/goalComponent";
 import ErrorBoundary from "../../common/erroBoundryComponent";
 import OnePercentageDataComponent from "../../common/onePercentageComponent";
+import OverviewCardTopBox from "./overview/OverviewCardTopBox";
 
 const OverviewComponent = () => {
     
@@ -533,6 +534,9 @@ const OverviewComponent = () => {
     return (
         <React.Fragment>
             <div className="shadow-box-con top-overview-con">
+                <div className="row">
+          <OverviewCardTopBox overViewData={overviewData} />
+        </div>
                 <div className="row">
                     <div className="col-xl-4 col-lg-4 d-md-flex flex-md-column">
                         <div className="svg-data-filter-con">
