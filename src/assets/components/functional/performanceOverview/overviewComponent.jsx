@@ -538,43 +538,8 @@ const OverviewComponent = () => {
           <OverviewCardTopBox overViewData={overviewData} />
         </div>
                 <div className="row">
-                    <div className="col-xl-4 col-lg-4 d-md-flex flex-md-column">
-                        <div className="svg-data-filter-con">
-                            <p>
-                                Compared to {daysDifference} days ago.{" "}
-                                {`${formatDate(dateRange[0].startDate)}-`}
-                                <br />
-                                {`${formatDate(dateRange[0].endDate)}`}
-                            </p>
-
-                        </div>
-                        <OverviewFunnelChart data={overviewData?.funnel} />
-                    </div>
-                    <div className="col-lg-8">
-                        <div className="row">
-                            <div className="col-md-4">
-                                <CTRWidget
-                                    firstHeadingText="Impressions"
-                                    firstHeadingData={`${overviewData?.metrics_data?.Impressions ? toLakhs(overviewData?.metrics_data?.Impressions) : "-"}`}
-                                    secondHeadingText="Clicks"
-                                    secondHeadingData={`${overviewData?.metrics_data?.Clicks ? toThousands(overviewData?.metrics_data?.Clicks) : "-"}`} />
-                            </div>
-                            <div className="col-md-4">
-                                <CTRWidget
-                                    firstHeadingText="Spends"
-                                    firstHeadingData={`${overviewData?.metrics_data?.Spend ? toLakhs(overviewData?.metrics_data?.Spend) : "-"}`}
-                                    secondHeadingText="Sales"
-                                    secondHeadingData={`${overviewData?.metrics_data?.Sales ? toLakhs(overviewData?.metrics_data?.Sales) : "-"}`} />
-                            </div>
-                            <div className="col-md-4">
-                                <CTRWidget
-                                    firstHeadingText="Orders"
-                                    firstHeadingData={`${overviewData?.metrics_data?.Orders ? toThousands(overviewData?.metrics_data?.Orders) : "-"}`}
-                                    secondHeadingText="ROAS"
-                                    secondHeadingData={`${overviewData?.metrics_data?.avg_roas ? overviewData?.metrics_data?.avg_roas : "-"}`} />
-                            </div>
-                        </div>
-                        <div className="agrregated-shadow-box-con aggregated-view-con mt-4">
+                    <div className="col-12">
+                        <div className="agrregated-shadow-box-con aggregated-view-con">
                             <div className="px-3 py-2 border-bottom">
                                 <div className="row">
                                     <div className="col-lg-6">
